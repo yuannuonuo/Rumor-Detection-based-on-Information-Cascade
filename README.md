@@ -11,7 +11,7 @@ numpy==1.19.
 
 # How to use
 ## Dataset
-The raw dataset is collected and processed by Yue Yuan and Na Pang and can be downloaded from [here]((https://drive.google.com/drive/folders/109GpzxLnZdmyU9ny0e3Tc77RGXqrGy4m?usp=sharing)).  
+The raw dataset is collected and processed by Yue Yuan and Na Pang and can be downloaded from [here](https://drive.google.com/drive/folders/109GpzxLnZdmyU9ny0e3Tc77RGXqrGy4m?usp=sharing).  
 The raw dataset has been processed according to Section 3.2.1 Data prepraration and Section 3.2.2 Data processing in our paper and is stored in Data.rar.  
 
 still updating
