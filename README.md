@@ -12,6 +12,9 @@ numpy==1.19.
 # RDCB Models & Ablation Models
 ## RDCB Models
 The overall structure of the RDCB model is shown in Figure 1.(a) that consists of four components: an input part, a dilated convolution part, a Bi-LSTM part, and an output part.
+
+![RDCB Model](./Figure1.pdf)
+
 The dilated convolution part is intended to extract local features from the paragraph embeddings generated during the data processing phase. 
 The original dilated convolution extracts meaningful text features through convolution on 2-D paragraph embeddings in the text splicing direction; however, convolution in the non-splicing direction loses spatial information of paragraph embedding. 
 Hence, the original dilated convolution cannot meet the needs of local feature extraction from paragraph embeddings. 
@@ -20,12 +23,15 @@ A detailed example of the this modified dilated convolution is shown in Figure 1
 
 The Bi-LSTM part is intended to extract global text features from paragraph embeddings of repost or reply sequences. 
 By capturing both the backward and forward directions of information from the input embedding sequence, the Bi-LSTM neural network extracts global sequence features from the input.
+
 For the output part, the outputs of the dilated convolution part and Bi-LSTM part were concatenated and sent to the softmax layer for classification.
 The softmax layer is built through a fully connected layer, and outputs the probability of a post being a rumor.
 ## Ablation Models
 For the first ablation model (the RDCB without Dilated Convolution Part), the dilated convolutional neural network was removed from the main model so that the effect of local features of reposts or replies in rumor detection could be revealed. (Figure 2)
+![RDCB Model Without Dilated Convolution Part](./Figure2.pdf)
 
 For the second ablation model (the RDCB without Bi-LSTM Part), the Bi-LSTM part of the RDCB model was removed from the main model to validate the global features of the reposts or replies in rumor detection. (Figure 3)
+![RDCB Model Without Bi-LSTM Part](./Figure3.pdf)
 
 # How to use
 ## Dataset
