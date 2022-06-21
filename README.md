@@ -1,5 +1,5 @@
 # Rumor-Detection-based-on-the-Cascading-Behavior
-This repository contains code for our paper "Repost or Reply？Rumor Detection based on Different Cascading Behaviors on Social Media" By Yue Yuan, Na Pang, Yuqi Zhang and Kan Liu. 
+This repository contains source code and datasets for our paper "Repost or Reply？Rumor Detection based on Different Cascading Behaviors on Social Media" By Yue Yuan, Na Pang, Yuqi Zhang and Kan Liu. 
 
 The trained models and Twitter and Weibo rumor datasets of this paper can be accessed here https://drive.google.com/drive/folders/109GpzxLnZdmyU9ny0e3Tc77RGXqrGy4m?usp=sharing.
 
@@ -77,6 +77,23 @@ For Testing:
 --bilstm --test --     # test the bilstm model by our trained model  
 
 --dbcnbilstm --test --     # test the dbcnbilstm model by our trained model  
+
+## Example Command
+Example 1. If you want to train the DBCN-BiLSTM model by your self using the twitter rumor dataset-source posts with replies combination, you should enter the following command on the console:
+
+cd YOUR_REPOSITORY_PATH
+
+python main.py --twitter --sourceposts-replies --dbcnbilstm --train YOURPATH
+
+Following the above commands, your self trained models will be saved in YOURPATH.
+
+Example 2. If you want to testin the trained DBCN-BiLSTM model provided by the author using the twitter rumor dataset-source posts with replies combination, you should enter the following command on the console:
+
+cd YOUR_REPOSITORY_PATH
+
+python main.py --twitter --sourceposts-replies --dbcnbilstm --test --
+
+Following the above commands, you will reproduce the detection results in the paper.
 
 
 Still updating！
