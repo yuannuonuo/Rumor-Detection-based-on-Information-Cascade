@@ -1,7 +1,7 @@
 # Rumor-Detection-based-on-the-Cascading-Behavior
 This repository contains source code and datasets for our paper "Repost or Reply？Rumor Detection based on Different Cascading Behaviors on Social Media" By Yue Yuan, Na Pang, Yuqi Zhang and Kan Liu. 
 
-The trained models and Twitter and Weibo rumor datasets of this paper can be accessed here https://drive.google.com/drive/folders/109GpzxLnZdmyU9ny0e3Tc77RGXqrGy4m?usp=sharing.
+The trained models and two rumor datasets of this paper can be accessed here https://drive.google.com/drive/folders/109GpzxLnZdmyU9ny0e3Tc77RGXqrGy4m?usp=sharing.
 
 # Requirements
 python==3.6.5  
