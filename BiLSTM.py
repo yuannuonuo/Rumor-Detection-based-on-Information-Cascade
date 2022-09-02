@@ -184,14 +184,8 @@ class BiLSTM:
             flatres = slim.flatten(poolres)  # flat.
             print("flat:" + str(flatres))
             concatbilstm = tf.concat([flatres,  bnbilstm], axis=1) # concatenation with bilstm.
-            # dropoutres = tf.layers.dropout(inputs=concatbilstm, rate=self.dropout_rate,
-            #                                training=dropout_training_flag)  # dropout.
             dropoutres = tf.layers.dropout(inputs=bnbilstm, rate=self.dropout_rate,
                                            training=dropout_training_flag)  # dropout.
-            # dropoutres = tf.layers.dropout(inputs=bngru1, rate=self.dropout_rate,
-            #                                training=dropout_training_flag)  # dropout.
-            # dropoutres = tf.layers.dropout(inputs=bngru2, rate=self.dropout_rate,
-            #                                training=dropout_training_flag)  # dropout.
             print("dropout:" + str(dropoutres))
             predictions = tf.layers.dense(inputs=dropoutres, units=self.output_units,activation=tf.nn.tanh)  # dense prediction output.
             print("dense:" + str(predictions))
