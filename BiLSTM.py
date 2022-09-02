@@ -123,25 +123,6 @@ class BiLSTM:
             bnbilstm = tf.layers.batch_normalization(bilstmout, training=batchnormalization_training_flag)
             print("bilstmout" + str(bnbilstm))
 
-        # with tf.name_scope("gru1"):
-        #     gru_cell_fw = contrib.rnn.GRUCell(self.para_embedding_size/2)
-        #     out, state = tf.nn.dynamic_rnn(cell=gru_cell_fw,
-        #                                                      inputs=inputs, time_major=False
-        #                                                      ,dtype=tf.float32)
-        #     gruout = tf.concat([state], 1)
-        #     bngru1 = tf.layers.batch_normalization(gruout, training=batchnormalization_training_flag)
-        #     print("gruout1" + str(bngru1))
-
-        # with tf.name_scope("gru2"):
-        #     gru_cell_fw = contrib.rnn.GRUCell(self.para_embedding_size/2)
-        #     gru_cell_bw = contrib.rnn.GRUCell(self.para_embedding_size/2)
-        #     out, state = tf.nn.bidirectional_dynamic_rnn(cell_fw=gru_cell_fw, cell_bw=gru_cell_bw,
-        #                                                      inputs=inputs, time_major=False
-        #                                                      ,dtype=tf.float32)
-        #     gruout = tf.concat([state[0],state[1]], 1)
-        #     bngru2 = tf.layers.batch_normalization(gruout, training=batchnormalization_training_flag)
-        #     print("gruout2" + str(bngru2))
-
         # The following codes reshape and unstack the input in order to let the input adapt the operation of column-wise dilated convolutional layer.
         with tf.name_scope("inputs"):
             inputs_reshape = tf.expand_dims(inputs,
