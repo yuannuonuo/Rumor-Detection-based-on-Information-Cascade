@@ -58,7 +58,7 @@ if __name__ == '__main__':
     sess = tf.Session()
     if trainOrTest=="--train":
         if modelName=="--dbcn":
-            print("Start Training DBCN!")
+            print("Start Training the Second Ablation Model-CSRD Without the BiLSTM Part!")
             dbcn=DBCN.DBCN_Model()
             if filePath=="--":
                 DBCN.DBCN_Model.modelSavingPath="./models/networks/dbcn/"
@@ -66,9 +66,9 @@ if __name__ == '__main__':
                 DBCN.DBCN_Model.modelSavingPath=filePath
             dbcn.modelSavingPath=filePath
             dbcn.train(sess,dataPreprocessor)
-            print("DBCN Training Completed!")
+            print("Second Ablation Model Training Completed!")
         elif modelName=="--dbcnbilstm":
-            print("Start Training DBCN_BiLSTM!")
+            print("Start Training CSRD!")
             dbcnbilstm=DBCN_BiLSTM.DBCN_BiLSTM()
             if filePath=="--":
                 DBCN_BiLSTM.DBCN_BiLSTM.modelSavingPath="./models/networks/dbcnbilstm/"
@@ -76,9 +76,9 @@ if __name__ == '__main__':
                 DBCN_BiLSTM.DBCN_BiLSTM.modelSavingPath=filePath
             dbcnbilstm.modelSavingPath=filePath
             dbcnbilstm.train(sess,dataPreprocessor)
-            print("DBCN_BiLSTM Training Completed!")
+            print("CSRD Training Completed!")
         elif modelName == "--bilstm":
-            print("Start Training BiLSTM!")
+            print("Start Training the First Ablation Model-CSRD Without the Dilated Convolution Part!")
             dbcnbilstm = BiLSTM.BiLSTM()
             if filePath == "--":
                 BiLSTM.BiLSTM.modelSavingPath = "./models/networks/bilstm/"
@@ -86,10 +86,20 @@ if __name__ == '__main__':
                 BiLSTM.BiLSTM.modelSavingPath = filePath
             dbcnbilstm.modelSavingPath = filePath
             dbcnbilstm.train(sess, dataPreprocessor)
-            print("BiLSTM Training Completed!")
+            print("First Ablation Model Training Completed!")
+       elif modelName == "--dbcnbilstmatt":
+            print("Start Training Attention-weight Model for CSRD!")
+            dbcnbilstm = DBCN_BiLSTM_Att.DBCN_BiLSTM_Att()
+            if filePath == "--":
+                BiLSTM.BiLSTM.modelSavingPath = "./models/networks/dbcnbilstmatt/"
+            else:
+                BiLSTM.BiLSTM.modelSavingPath = filePath
+            dbcnbilstm.modelSavingPath = filePath
+            dbcnbilstm.train(sess, dataPreprocessor)
+            print("Attention-weight Model Training Completed!")
     elif trainOrTest=="--test":
         if modelName=="--dbcn":
-            print("Start Testing DBCN!")
+            print("Start Testing the Second Ablation Model-CSRD Without the BiLSTM Part!")
             dbcn=DBCN.DBCN_Model()
             if combination=="--sourceposts":
                 DBCN.DBCN_Model.modelSavingPath = testModelSavingPath+"/dbcn_withoutcomments/"
@@ -97,9 +107,9 @@ if __name__ == '__main__':
                 DBCN.DBCN_Model.modelSavingPath = testModelSavingPath + "/dbcn/"
             dbcn.modelSavingPath=filePath
             dbcn.test(sess,dataPreprocessor)
-            print("DBCN Test Completed!")
+            print("Second Ablation Model Test Completed!")
         elif modelName=="--dbcnbilstm":
-            print("Start Testing DBCN_BiLSTM!")
+            print("Start Testing CSRD!")
             dbcn = DBCN.DBCN_Model()
             if combination == "--sourceposts":
                 DBCN.DBCN_Model.modelSavingPath = testModelSavingPath + "/dbcnbilstm_withoutcomments/"
@@ -107,9 +117,9 @@ if __name__ == '__main__':
                 DBCN.DBCN_Model.modelSavingPath = testModelSavingPath + "/dbcnbilstm/"
             dbcn.modelSavingPath = filePath
             dbcn.test(sess, dataPreprocessor)
-            print("DBCN_BiLSTM Test Completed!")
+            print("CSRD Test Completed!")
         elif modelName == "--bilstm":
-            print("Start Testing BiLSTM!")
+            print("Start Testing the First Ablation Model-CSRD Without the Dilated Convolution Part!")
             dbcn = DBCN.DBCN_Model()
             if combination == "--sourceposts":
                 DBCN.DBCN_Model.modelSavingPath = testModelSavingPath + "/bilstm_withoutcomments/"
@@ -117,4 +127,4 @@ if __name__ == '__main__':
                 DBCN.DBCN_Model.modelSavingPath = testModelSavingPath + "/bilstm/"
             dbcn.modelSavingPath = filePath
             dbcn.test(sess, dataPreprocessor)
-            print("BiLSTM Test Completed!")
+            print("First Ablation Model Test Completed!")
